@@ -8,7 +8,7 @@ router.get('/', function(req, res, next) {
     name: 'kinauanne',
     data: new Date()
   }
-  res.render('index', { title: 'kinauanne' });
+  res.render('index', data);
 });
 
 module.exports = router;
