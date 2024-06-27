@@ -4,9 +4,9 @@ var router = express.Router();
 /* GET home page. */
 router.get('/', function(req, res, next) {
   const data = {
-    title: 'Express', 
-    name: 'kinauanne',
-    data: new Date()
+    title: 'kinauanne', 
+    date: new Date().toLocaleDateString(),
+    time: new Date().toLocaleTimeString()
   }
   res.render('index', data);
 });
