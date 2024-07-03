@@ -1,0 +1,40 @@
+<h1>{{title}}</h1>
+
+{{!-- {{#each alunos}}
+<ul>
+    <li><b>Nome: </b>{{nome}}</li>
+    <li><b>Matricula: </b>{{matricula}}</li>
+    <li><b>Data de Nascimento: </b>{{data_nascimento}}</li>
+    <li><b>Endereço de Email: </b>{{email}}</li>
+</ul>
+{{/each}} --}}
+
+<table class="table">
+  <thead>
+    <tr>
+      <th scope="col">#</th>
+      <th scope="col">Matricula</th>
+      <th scope="col">Nome</th>
+      <th scope="col">Data de Nascimento</th>
+      <th scope="col">Endereço de Email</th>
+      <th scope="col">Editar</th>
+      <th scope="col">Apagar</th>
+    </tr>
+  </thead>
+
+  <tbody>
+    {{#each alunos}}
+    <tr>
+      <th scope="row"></th>
+      <th>{{matricula}}</th>
+      <td><a href="/alunos/{{matricula}}">{{nome}}</a></td>
+      <td>{{data_nascimento}}</td>
+      <td>{{email}}</td>
+      <td><i class="bi bi-pencil-square"></i></td>
+      <td><i class="bi bi-trash"></i></td>
+
+    </tr>
+    {{/each}}
+  </tbody>
+</table>
+<button type="button" class="btn btn-outline-light">Novo aluno <i class="bi bi-person-add"></i></button>
