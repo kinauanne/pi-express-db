@@ -30,12 +30,11 @@
       <td><a href="/alunos/{{matricula}}">{{nome}}</a></td>
       <td>{{data_nascimento}}</td>
       <td>{{email}}</td>
-      <td><i class="bi bi-pencil-square"></i></td>
-      <td><i class="bi bi-trash"></i></td>
+      <td><a href="/alunos/edit/{{matricula}}"><i class="bi bi-pencil-square"></i></a></td>
+      <td><a href=""><i class="bi bi-trash"></a></i></td>
 
     </tr>
     {{/each}}
   </tbody>
 </table>
-{{!-- <button type="button" class="btn btn-outline-light">Novo aluno <i class="bi bi-person-add"></i></button> --}}
-<a href="/alunos/new">Adicionar novo aluno</a>
+<button type="button" class="btn btn-outline-light"><a href="/alunos/new">Adicionar novo aluno <i class="bi bi-person-add"></i></a></button>
