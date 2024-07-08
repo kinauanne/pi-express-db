@@ -1,38 +1,20 @@
 const express = require('express');
 const router = express.Router();
-let alunos = require('../tests/mocks/alunos.json');
+let alunos = require('../../tests/mocks/alunos.json');
 
 /* GET users listing. */
 router.get('/', function(_req, res, next) {
-  const data = {
-    title: 'Alunos',
-    alunos: alunos.content
-  }
-  res.render('list', data);
-});
-
-router.get('/new', function (_req, res, next) {
-  const { heads: labels } = alunos
-  const parametro = "create";
-  const data = { metodo: "post", parametro, title: 'Novo aluno', buttonText: "adicionar"}
-  res.render('form', data);
+  const data = {alunos}
+  res.json( data);
 });
 
 router.get('/:matricula', function(req,res,next){
   const{matricula} = req.params;
   const aluno = alunos.content[matricula];
-  res.render('card',{title:'Detalhes do Aluno',aluno})
+  res.json({aluno})
 })
 
-router.get('/edit/:matricula', function (req, res, next) {
-  const { matricula } = req.params;
-  const parametro = matricula;
-  const aluno = alunos.content[matricula];
-
-  res.render('form', {metodo: "put", parametro, title: ' Editar aluno', buttonText: 'Salvar alterações', aluno});
-});
-
-router.post('/create', function (req, res, next) {
+router.post('/', function (req, res, next) {
   let novoAluno = req.body;
   let matricula = novoAluno.matricula;
 
